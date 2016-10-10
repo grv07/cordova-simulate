@@ -103,6 +103,15 @@ function initialize() {
         if (axis.hasOwnProperty('z')) axisZ.value = axis.z;
     });
 
+    // Use the font size in pixels of the accelerometer-help element to determine the scale of the device
+    var fontSize = parseFloat(window.getComputedStyle(document.getElementById('accelerometer-help')).fontSize);
+    var scale = fontSize / 12;
+    var canvasElement = document.getElementById('accelerometer-canvas');
+    var canvas = canvasElement.getContext("2d");
+    canvasElement.setAttribute("width", Math.round(scale * 200));
+    canvasElement.setAttribute("height", Math.round(scale * 160));
+    canvas.scale(scale, scale);
+
     createCanvas();
 
     setToDefaultPosition();
@@ -185,6 +194,7 @@ function updateCanvasCenter(xAxis, yAxis) {
 }
 
 function updateCanvas(a, b, g) {
+    ThreeDee.scale(2, 2, 2);
     ThreeDee.loadMesh(_shape);
     g = g || 0;
     ThreeDee.rotate(0, g, 0);
@@ -198,6 +208,7 @@ function updateCanvas(a, b, g) {
 }
 
 function createCanvas() {
+    console.log('createCanvas');
     var node = document.getElementById('accelerometer-canvas'),
         cosX, sinX, cosY, sinY;
 

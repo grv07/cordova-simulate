@@ -44,7 +44,7 @@
 
 function Drawing(){
 	this.WIREFRAME = 1; this.FILL = 2;
-	ZOOM = 1;
+	ZOOM = 2;
 	CANVAS = null;
 	TEXTURES = null;
 }

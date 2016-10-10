@@ -4,7 +4,10 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
-    font-family: 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+    font-family: var(--default-font-family);
+    font-size: var(--default-font-size);
+    font-weight: var(--default-font-weight);
+    color: var(--default-color);
     background: transparent;
     user-select: none;
     -moz-user-select: none;
@@ -17,26 +20,21 @@ html {
     height: 100%;
 }
 
-h1 {
-    font-family: 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
-    font-size: 16pt;
-    font-weight: bold;
-}
-
 a {
     text-decoration: underline;
     outline: none;
     cursor: pointer;
-    font-size: 12px;
     color: rgb(128, 128, 128);
 }
 
 cordova-panel {
-    width: 320px;
+    width: 20em;
+    /*width: 320px;*/
 }
 
 cordova-dialog {
-    width: 377px;
+    /*width: 377px;*/
+    width: 24em;
 }
 
 cordova-panel, cordova-dialog {
@@ -48,66 +46,119 @@ cordova-panel, cordova-dialog {
     display: block;
 }
 
+cordova-button /deep/ button {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    color: var(--button-color);
+    background: var(--button-background);
+    border: var(--button-border);
+}
+
+cordova-button /deep/ button:active,
+cordova-button /deep/ button:hover {
+    color: var(--button-active-color);
+    background: var(--button-active-background);
+    border: var(--button-active-border);
+}
+
+body /deep/ label {
+    font-family: var(--label-font-family);
+    font-size: var(--label-font-size);
+    font-weight: var(--label-font-weight);
+    color: var(--label-color);
+}
+
+body /deep/ p, body /deep/ .p {
+    color: var(--paragraph-color);
+    font-family: var(--paragraph-font-family);
+    font-size: var(--paragraph-font-size);
+    font-weight: var(--paragraph-font-weight);
+}
+
+cordova-combo /deep/ select,
+body /deep/ textarea,
+body /deep/ input[type^=text],
+body /deep/ input[type^=number],
+input[type^=number] {
+    font-family: var(--input-font-family);
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
+    color: var(--input-color);
+    background: var(--input-background);
+    border: var(--input-border);
+}
+
+body /deep/ input[type^=range] {
+    font-family: var(--input-font-family);
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
+}
+
+cordova-combo /deep/ select:hover,
+body /deep/ textarea:hover,
+body /deep/ input[type^=text]:hover,
+body /deep/ input[type^=number]:hover,
+input[type^=number]:hover {
+    color: var(--input-active-color);
+    background: var(--input-active-background);
+    border: var(--input-active-border);
+}
+
+body /deep/ .cordova-value {
+    color: var(--value-color);
+    font-family: var(--value-font-family);
+    font-size: var(--value-font-size);
+    font-weight: var(--value-font-weight);
+}
+
 body /deep/ .cordova-panel-inner {
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(0,0,0,0.785);
-    background: rgba(255,255,255,0.97);
-    border-radius: 0px;
+    border: var(--panel-border);
+    background: var(--panel-background);
+    border-radius: 0;
     overflow: hidden;
 }
 
 body /deep/ .cordova-header {
-    padding: 5px 9px;
+    padding: 0.3125em 0.5625em;
     position: relative;
-    background-color: black;
+    background: var(--caption-background);
     opacity: 0.7;
-    color: rgb(204,204,204);
-    font-size: 12px;
-    height: 20px;
-    line-height: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
+    color: var(--caption-color);
+    font-family: var(--caption-font-family);
+    font-size: var(--caption-font-size);
+    font-weight: var(--caption-font-weight);
+    height: 1.25em;
+    line-height: 1.25em;
+    text-transform: var(--caption-text-transform);
     cursor: pointer;
 }
 
-body /deep/ .cordova-widget {
-    font-family: 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
-    font-size: 13px;
-}
-
-/* 12px margin around top level items in the content a panel */
 body /deep/ .cordova-content > ::content > * {
-    margin: 12px;
+    margin: 0.375em 0.75em;
+    min-height: 1.5em;
     position: relative;
 }
 
 .cordova-main {
-    margin: 5px 0 0 5px;
-    column-width: 330px;
-    -moz-column-width: 330px;
-    -webkit-column-width: 330px;
+    margin: 0.3125em 0 0 0.3125em;
+    column-width: 20.625em;
+    -moz-column-width: 20.625em;
+    -webkit-column-width: 20.625em;
     column-gap: 0;
     -moz-column-gap: 0;
     -webkit-column-gap: 0;
 }
 
-body /deep/ label, body /deep/ p, body /deep/ .p {
-    color: rgba(0,0,0,0.95);
-    font-size: 13px;
-}
-
 body /deep/ .cordova-value {
-    color: black;
-    font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 6px;
+    margin-left: 0.375em;
 }
 
 body /deep/ input {
-    margin: 0 10px;
+    margin: 0 0.625em;
     padding: 0;
 }
 
@@ -130,11 +181,11 @@ body /deep/ .cordova-overlay {
 }
 
 cordova-combo /deep/ select {
-    min-width: 112px;
+    min-width: 7em;
 }
 
 cordova-button {
-    min-width: 112px;
+    min-width: 7em;
     display: inline-block;
     position: relative;
     text-align: center;
@@ -155,63 +206,34 @@ body /deep/ select {
 body /deep/ select,
 body /deep/ input[type^=text],
 body /deep/ input[type^=number], input[type^=number] {
-    padding: 5px;
+    padding: 0.3125em;
 }
 
 body /deep/ input,
 body /deep/ textarea,
-body /deep/ keygen,
 body /deep/ select,
-body /deep/ button,
-body /deep/ isindex {
-    font-size: 14px;
+body /deep/ button {
     margin-left: 0;
     margin-right: 0;
     resize: none;
 }
 
 body /deep/ textarea {
-    padding: 2px 4px;
-    width: calc(100% - 10px); /* Account for padding and border */
+    padding: 0.125em 0.25em;
+    width: calc(100% - 0.625em); /* Account for padding and border */
     overflow-y: auto;
 }
 
 body /deep/ input[type^=text],
 body /deep/ input[type^=number] {
-    width: 100px;
+    width: 6.25em;
 }
 
-body /deep/ button:active,
-body /deep/ textarea:hover,
-body /deep/ textarea:active,
-body /deep/ input[type^=text]:focus,
-body /deep/ input[type^=number]:focus,
-body /deep/ input[type^=text]:hover,
-body /deep/ input[type^=number]:hover {
-    border: 1px solid #CCCCCC;
-    background: #ffffff;
-    font-weight: normal;
-    color: #212121;
-}
-
-body /deep/ .cordova-state-default {
-    border: 1px solid #d3d3d3;
-    background: #ffffff;
-    font-weight: normal;
-}
-
-body /deep/ input:focus,
-body /deep/ textarea:focus,
-body /deep/ isindex:focus,
-body /deep/ keygen:focus,
-body /deep/ select:focus {
-    outline: none;
-}
 
 body /deep/ cordova-radio {
     display: flex;
     align-items: center;
-    padding: 2px;
+    padding: 0.125em;
 }
 
 body /deep/ .cordova-panel-row {
@@ -235,8 +257,8 @@ body /deep/ .cordova-radio-label {
 body /deep/ cordova-item + cordova-item {
     display: block;
     border-top: #d3d3d3 1px solid;
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: 0.625em;
+    padding-top: 0.625em;
 }
 
 body /deep/ cordova-item:hover:before {
@@ -245,8 +267,8 @@ body /deep/ cordova-item:hover:before {
     margin-left: auto;
     right: 0;
     background: white;
-    font-size: 14px;
-    padding-left: 8px;
+    font-size: 0.875em;
+    padding-left: 0.5em;
     font-weight: bold;
     color: darkred;
     cursor: pointer;
@@ -255,13 +277,13 @@ body /deep/ cordova-item:hover:before {
 body /deep/ .cordova-collapse-icon {
     cursor: pointer;
     background: url('collapse.png') no-repeat 50% 50%;
-    width: 22px;
-    height: 22px;
+    width: 1.375em;
+    height: 100%;
     position: absolute;
-    margin-top: 1px;
+    margin-top: -0.3125em;
     margin-bottom: auto;
-    right: 6px;
-    bottom: 4px;
+    right: 0.375em;
+    /*bottom: 4px;*/
     margin-left: auto;
 }
 
@@ -272,19 +294,21 @@ body /deep/ .cordova-collapse-icon.cordova-collapsed {
 body /deep/ .cordova-close-icon {
     cursor: pointer;
     background: url('close.png') no-repeat 50% 50%;
-    width: 22px;
-    height: 22px;
+    width: 1.375em;
+    height: 1.375em;
     position: absolute;
-    margin-top: 1px;
+    margin-top: 0.0625em;
     margin-bottom: auto;
-    right: 6px;
-    bottom: 4px;
+    right: 0.375em;
+    bottom: 0.25em;
     margin-left: auto;
 }
 
 body /deep/ .cordova-content {
     overflow: hidden;
     transition: height 0.2s;
+    padding-top: 0.375em;
+    padding-bottom: 0.375em;
 }
 
 body /deep/ .cordova-hidden {
@@ -305,20 +329,20 @@ body /deep/ .cordova-content {
 }
 
 cordova-panel {
-    padding: 5px 0;
+    padding: 0.3125em 0;
 }
 
 .cordova-main {
-    padding-left: 5px;
+    padding-left: 0.3125em;
 }
 /* END CHROME */
 
 /* BEGIN !CHROME */
 body .cordova-panel-inner {
-    margin-bottom: 10px;
+    margin-bottom: 0.625em;
 }
 
 .cordova-main {
-    padding: 5px;
+    padding: 0.3125em;
 }
 /* END !CHROME */

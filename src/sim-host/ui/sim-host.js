@@ -65,7 +65,13 @@ function getCollapsedPanels() {
 function sizeContent() {
     // Size the content area to keep column widths fixed
     var bodyWidth = parseInt(window.getComputedStyle(document.body).width);
-    var contentWidth = (Math.floor((bodyWidth - 1) / 333) || 1) * 333;
+    //console.log('Panel width:');
+    var panelWidth = parseInt(window.getComputedStyle(document.querySelector('cordova-panel')).width);
+    var columnWidth = panelWidth / 27 * 28 + 3;
+    console.log('COLUMN WIDTH: ' + columnWidth);
+
+    //console.log(window.getComputedStyle(document.querySelector('.cordova-panel')).width);
+    var contentWidth = (Math.floor((bodyWidth - 1) / columnWidth) || 1) * columnWidth;
     document.querySelector('.cordova-main').style.width = contentWidth + 'px';
 }
 
